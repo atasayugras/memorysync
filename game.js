@@ -30,8 +30,6 @@ $(document).on("touchstart", function () {
     gameStarted = true;
   }
 });
-}
-
 
 // *** GENERATE NEXT SEQUENCE ***
 function nextSequence() {

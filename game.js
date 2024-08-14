@@ -13,7 +13,7 @@ const sounds = {
   stronger: new Audio("./sounds/stronger.mp3"),
 };
 
-// *** START THE GAME ***
+// *** START THE GAME ON PC ***
 function startGameOnKeyPress() {
   $(document).on("keydown", function () {
     if (gameStarted == false) {
@@ -22,6 +22,16 @@ function startGameOnKeyPress() {
     }
   });
 }
+
+// *** START THE GAME ON MOBILE ***
+$(document).on("touchstart", function () {
+  if (gameStarted == false) {
+    nextSequence();
+    gameStarted = true;
+  }
+});
+}
+
 
 // *** GENERATE NEXT SEQUENCE ***
 function nextSequence() {
@@ -52,7 +62,7 @@ $(".btn").on("click", function () {
 
   sounds[userChosenColor].play(); // Play the sound corresponding to the chosen color
 
-  checkAnswer(userClickedPattern.length - 1); // Check the user's answer after each click
+  checkAnswer(userClickedPattern.length - 1); // Check the user's answer after each click + represents the index of the latest user input.
 });
 
 // *** CHECK ANSWER ***
